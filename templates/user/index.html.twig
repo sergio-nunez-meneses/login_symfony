@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}Current users{% endblock %}
+{% block body %}
+<div class="border p-3 text-center">
+  <div class="d-none bg-warning text-white">
+    {# <p class="p-1 lead">success message</p> #}
+  </div>
+  <div>
+    <h1>Welcome!</h1>
+    {% for user in users %}
+    <div class="container border">
+    <p class="lead">Id:
+      <span class="font-italic text-secondary">{{ user.id }}</span>
+    </p>
+    <p class="lead">Username:
+      <span class="font-italic text-secondary">{{ user.name }}</span>
+    </p>
+    <p class="lead">Status:
+      <span class="font-italic text-secondary">?</span>
+    </p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
