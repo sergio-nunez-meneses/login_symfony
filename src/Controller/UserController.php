@@ -31,7 +31,7 @@ class UserController extends AbstractController
 
       return $this->render('user/index.html.twig', [
         'controller_name' => 'UserController',
-        'active_link' => 'users',
+        'active_page' => 'users',
         'users' => $users
       ]);
 

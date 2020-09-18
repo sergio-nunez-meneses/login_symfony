@@ -4,13 +4,11 @@
 <div class="border p-3 bg-light text-center">
   <div class="pb-5 px-3">
     <p class="lead">Current connected user:
-      {# <?php
-      if (isset($_SESSION['user']) === TRUE) {
-        echo $_SESSION['user'];
-      } else {
-        echo 'No user connected';
-      }
-      ?> #}
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
     </p>
     <span class="font-italic text-secondary">(just for debugging)</span>
   </div>

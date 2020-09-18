@@ -15,11 +15,20 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
-            <ul class="navbar-nav mr-auto">
+          <div id="navbarNav" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+              {% if active_page is not defined or active_page != 'users' %}
               <li class="nav-items">
-                <a class="nav-link btn btn-lg bg-dark text-white {% if active_link is defined and active_link == 'users' %}active{% endif %}" href="{{ path('user.index') }}">Users</a>
+                <a class="nav-link btn btn-lg bg-dark text-white" href="{{ path('user.index') }}">Users</a>
               </li>
+              {% endif %}
+            </ul>
+            <ul class="navbar-nav">
+              {% if active_page is not defined or active_page != 'form' %}
+              <li class="nav-items">
+                <a class="nav-link btn btn-lg bg-dark text-white" href="{{ path('app_login') }}">Form</a>
+              </li>
+              {% endif %}
             </ul>
           </div>
         </nav>
