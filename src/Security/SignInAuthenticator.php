@@ -97,7 +97,7 @@ class SignInAuthenticator extends AbstractFormLoginAuthenticator implements Pass
         }
 
         // redirect to some "app_homepage" route - of wherever you want
-        return new RedirectResponse($this->urlGenerator->generate('home'));
+        return new RedirectResponse($this->urlGenerator->generate('user.index'));
     }
 
     protected function getLoginUrl()

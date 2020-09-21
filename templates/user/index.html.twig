@@ -5,20 +5,27 @@
   <div class="d-none bg-warning text-white">
     {# <p class="p-1 lead">success message</p> #}
   </div>
-  <div>
-    <h1>Welcome!</h1>
-    {% for user in users %}
-    <div class="container border">
-    <p class="lead">Id:
-      <span class="font-italic text-secondary">{{ user.id }}</span>
-    </p>
-    <p class="lead">Username:
-      <span class="font-italic text-secondary">{{ user.name }}</span>
-    </p>
-    <p class="lead">Status:
-      <span class="font-italic text-secondary">?</span>
-    </p>
+  {% if app.user %}
+    <div class="container border my-1 p-3">
+      <h1>Welcome!</h1>
+      <span class="lead font-italic">{{ app.user.username }}</span>
+      <span class="lead font-italic">{{ app.user.id }}</span>
     </div>
+  {% endif %}
+  <div class="container border my-1 p-3">
+    <h1>All users</h1>
+    {% for user in users %}
+      <div class="container border">
+      <p class="lead">Id:
+        <span class="font-italic text-secondary">{{ user.id }}</span>
+      </p>
+      <p class="lead">Username:
+        <span class="font-italic text-secondary">{{ user.username }}</span>
+      </p>
+      <p class="lead">Status:
+        <span class="font-italic text-secondary">?</span>
+      </p>
+      </div>
     {% endfor %}
   </div>
 </div>

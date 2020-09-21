@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Users;
-use App\Repository\UsersRepository; // autowiring
+use App\Entity\User;
+use App\Repository\UserRepository; // autowiring
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,11 +11,11 @@ use Symfony\Component\HttpFoundation\Response;
 class UserController extends AbstractController
 {
     /**
-     * @var PropertyRepository
+     * @var UserRepository
      */
     private $repository;
 
-    public function __construct(UsersRepository $repository) // autowiring
+    public function __construct(UserRepository $repository) // autowiring
     {
       $this->repository = $repository;
     }
@@ -26,11 +26,10 @@ class UserController extends AbstractController
      */
     public function index(): Response
     {
-      $users = $this->repository->getUsersIdsNames();
+      $users = $this->repository->findAll();
       dump($users);
 
       return $this->render('user/index.html.twig', [
-        'controller_name' => 'UserController',
         'active_page' => 'users',
         'users' => $users
       ]);
